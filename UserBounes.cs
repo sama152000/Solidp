@@ -1,11 +1,11 @@
 ﻿using System;
 
-public class User
+public class UserBounes
 {
     public string Email { get; }
     public string Password { get; }
 
-    public User(string email, string password)
+    public UserBounes(string email, string password)
     {
         Email = email;
         Password = password;
@@ -67,7 +67,7 @@ public class UserService
         if (!_emailValidator.ValidateEmail(email))
             throw new ValidationException("Email is not valid");
 
-        var user = new User(email, password);
+        var user = new UserBounes(email, password);
 
         _emailSender.SendEmail(new MailMessage("mysite@nowhere.com", email) { Subject = "Welcome!" });
     }
